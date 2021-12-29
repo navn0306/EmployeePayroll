@@ -14,7 +14,8 @@ public class EmployeePayrollService {
     }
 
     public EmployeePayrollService(List<EmployeePayrollData>
-                                          employeePayrollList) {}
+                                          employeePayrollList) {
+    }
 
     public static void main(String[] args) {
         ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<>();
@@ -36,6 +37,6 @@ public class EmployeePayrollService {
     }
 
     private void writeEmployeePayrollData() {
-        System.out.println("\n Writing employee payroll roster to console\n" +employeePayrollList);
+        System.out.println("\n Writing employee payroll roster to console\n" + employeePayrollList);
     }
 }
