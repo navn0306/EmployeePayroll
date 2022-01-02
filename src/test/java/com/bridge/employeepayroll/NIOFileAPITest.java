@@ -3,6 +3,7 @@ package com.bridge.employeepayroll;
 import com.bridge.fileutil.FileUtil;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,8 +42,16 @@ public class NIOFileAPITest {
         });
 
         //List Files, Directories and files with extensions
+        Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
         Files.newDirectoryStream(playPath).forEach(System.out::println);
         Files.newDirectoryStream(playPath, path -> path.toFile().isFile() && path.toString().startsWith("temp"))
                 .forEach(System.out::println);
+    }
+
+    @Test
+    public void givenADirectoryWhenWatchedListAllTheActivities() throws IOException {
+        Path dir = Paths.get(HOME + "/" + PLAY_WITH_NIO);
+        Files.list(dir).filter(Files::isRegularFile).forEach(System.out::println);
+        new JavaBWatchServiceExample(dir).processEvents();
     }
 }
